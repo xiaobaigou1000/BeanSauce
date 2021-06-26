@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_navigation_graph"
+    app:startDestination="@id/movieFragment">
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="ink.xiaobaigou.beansauce.movie.fragment.MovieFragment"
+        android:label="@string/movie"
+        tools:layout="@layout/fragment_movie" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="ink.xiaobaigou.beansauce.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+</navigation>
