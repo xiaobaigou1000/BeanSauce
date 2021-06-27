@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingRight="12dp"
+    android:paddingLeft="12dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f8f8f8"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingRight="10dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="习近平与人民在一起的春节暖心瞬间"
+                android:layout_alignParentTop="true"
+                android:textSize="18sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginTop="-3dp"
+                android:textColor="#222222" />
+
+            <TextView
+                android:id="@+id/news_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新华社全媒报道平台  5901评"
+                android:layout_alignParentBottom="true"
+                android:textSize="10sp"
+                android:textColor="#bfbfbf"
+                tools:ignore="SmallSp" />
+
+        </RelativeLayout>
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/news_image"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f8f8f8"/>
+
+</LinearLayout>

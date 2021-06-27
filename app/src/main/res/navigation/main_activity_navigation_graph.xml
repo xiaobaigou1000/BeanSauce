@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_movie" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="ink.xiaobaigou.beansauce.news.NewsFragment"
-        android:label="fragment_news"
+        android:name="ink.xiaobaigou.beansauce.news.fragment.NewsFragment"
+        android:label="News Fragment"
         tools:layout="@layout/fragment_news" />
 </navigation>
