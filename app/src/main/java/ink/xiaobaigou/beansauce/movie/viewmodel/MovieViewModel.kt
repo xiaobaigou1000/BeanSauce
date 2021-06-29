@@ -20,8 +20,6 @@ class MovieViewModel : ViewModel() {
     private val _comingSoonLiveData = MutableLiveData<List<MovieDetailPayload>>()
     val comingSoonLiveData: LiveData<List<MovieDetailPayload>> = _comingSoonLiveData
 
-//    var currentMovieTab = 0
-
     init {
         viewModelScope.launch {
             try {

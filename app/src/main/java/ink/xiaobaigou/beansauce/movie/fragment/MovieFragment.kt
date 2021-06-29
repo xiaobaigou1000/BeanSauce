@@ -41,26 +41,6 @@ class MovieFragment : Fragment() {
                     else -> getString(R.string.unknown)
                 }
             }.attach()
-
-//            pager.currentItem = viewModel.currentMovieTab
-//
-//
-//            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-//                override fun onTabSelected(tab: TabLayout.Tab?) {
-//                    if (tab != null) {
-//                        viewModel.currentMovieTab = tab.position
-//                    }
-//                }
-//
-//                override fun onTabUnselected(tab: TabLayout.Tab?) {
-//
-//                }
-//
-//                override fun onTabReselected(tab: TabLayout.Tab?) {
-//
-//                }
-//
-//            })
         }
     }
 }

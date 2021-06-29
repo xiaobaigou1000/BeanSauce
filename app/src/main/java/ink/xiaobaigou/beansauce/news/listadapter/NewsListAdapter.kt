@@ -20,7 +20,6 @@ class NewsListAdapter(val onItemClick:(News)->Unit): ListAdapter<News, NewsListA
             override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
                 return oldItem==newItem
             }
-
         }
     }
 
