@@ -32,10 +32,6 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            topAppBar.setupWithNavController(
-                findNavController(),
-                AppBarConfiguration(setOf(R.id.movieFragment))
-            )
 
             pager.adapter = MovieFragmentCollectionAdapter(this@MovieFragment)
             TabLayoutMediator(tabLayout, pager) { tab, position ->

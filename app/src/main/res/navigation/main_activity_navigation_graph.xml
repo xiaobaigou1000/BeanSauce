@@ -13,5 +13,32 @@
         android:id="@+id/newsFragment"
         android:name="ink.xiaobaigou.beansauce.news.fragment.NewsFragment"
         android:label="News Fragment"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment">
+            <argument
+                android:name="url"
+                app:argType="string"
+                app:nullable="false" />
+            <argument
+                android:name="title"
+                app:argType="string"
+                app:nullable="false" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="ink.xiaobaigou.beansauce.news.fragment.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail">
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>
