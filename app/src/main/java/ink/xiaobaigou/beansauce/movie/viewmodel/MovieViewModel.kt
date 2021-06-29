@@ -20,28 +20,36 @@ class MovieViewModel : ViewModel() {
     private val _comingSoonLiveData = MutableLiveData<List<MovieDetailPayload>>()
     val comingSoonLiveData: LiveData<List<MovieDetailPayload>> = _comingSoonLiveData
 
+    suspend fun updateMovieList() {
+        try {
+            val response = movieService.getMovieList()
+            if (!response.isSuccessful) {
+                return
+            }
+            _movieListLiveData.value = response.body()
+        } catch (err: Exception) {
+            err.message?.let { Log.v(MovieViewModel::class.java.simpleName, it) }
+        }
+    }
+
+    suspend fun updateComingSoon() {
+        try {
+            val response = movieService.getComingSoon()
+            if (!response.isSuccessful) {
+                return
+            }
+            _comingSoonLiveData.value = response.body()
+        } catch (err: Exception) {
+            err.message?.let { Log.v(MovieViewModel::class.java.simpleName, it) }
+        }
+    }
+
     init {
         viewModelScope.launch {
-            try {
-                val response = movieService.getMovieList()
-                if (!response.isSuccessful) {
-                    return@launch
-                }
-                _movieListLiveData.value = response.body()
-            } catch (err: Exception) {
-                err.message?.let { Log.v(MovieViewModel::class.java.simpleName, it) }
-            }
+            updateMovieList()
         }
         viewModelScope.launch {
-            try {
-                val response = movieService.getComingSoon()
-                if (!response.isSuccessful) {
-                    return@launch
-                }
-                _comingSoonLiveData.value = response.body()
-            } catch (err: Exception) {
-                err.message?.let { Log.v(MovieViewModel::class.java.simpleName, it) }
-            }
+            updateComingSoon()
         }
     }
 }

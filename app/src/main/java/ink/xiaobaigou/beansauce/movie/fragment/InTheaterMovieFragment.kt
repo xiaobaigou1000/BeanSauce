@@ -36,6 +36,13 @@ class InTheaterMovieFragment : Fragment() {
             movieViewModel.movieListLiveData.observe(viewLifecycleOwner){
                 adapter.submitList(it)
             }
+
+            swipeRefresh.setOnRefreshListener {
+                lifecycleScope.launch {
+                    movieViewModel.updateMovieList()
+                    swipeRefresh.isRefreshing=false
+                }
+            }
         }
     }
 }

@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import ink.xiaobaigou.beansauce.R
 import ink.xiaobaigou.beansauce.databinding.FragmentComingSoonMovieBinding
 import ink.xiaobaigou.beansauce.movie.listadapter.MovieListAdapter
 import ink.xiaobaigou.beansauce.movie.viewmodel.MovieViewModel
+import kotlinx.coroutines.launch
 
 class ComingSoonMovieFragment : Fragment() {
     lateinit var binding:FragmentComingSoonMovieBinding
@@ -33,6 +35,13 @@ class ComingSoonMovieFragment : Fragment() {
 
             movieViewModel.comingSoonLiveData.observe(viewLifecycleOwner){
                 adapter.submitList(it)
+            }
+
+            swipeRefresh.setOnRefreshListener {
+                lifecycleScope.launch {
+                    movieViewModel.updateComingSoon()
+                    swipeRefresh.isRefreshing=false
+                }
             }
         }
     }
