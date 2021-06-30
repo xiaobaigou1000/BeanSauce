@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.MarginPageTransformer
 import ink.xiaobaigou.beansauce.R
 import ink.xiaobaigou.beansauce.databinding.FragmentMusicBinding
@@ -36,6 +37,17 @@ class MusicFragment : Fragment() {
                     resources.getDimension(R.dimen.music_banner_page_margin).toInt()
                 )
             )
+            moreHighQualityListButton.setOnClickListener {
+                val action =
+                    MusicFragmentDirections.actionMusicFragmentToHighQualityMusicListFragment()
+                findNavController().navigate(action)
+            }
+
+            moreTopMusicListButton.setOnClickListener {
+                val action = MusicFragmentDirections.actionMusicFragmentToMusicTopListFragment()
+                findNavController().navigate(action)
+            }
+
             musicInfoViewModel.musicBanners.observe(viewLifecycleOwner) {
                 bannerPagerAdapter.submitList(it)
             }
@@ -48,11 +60,35 @@ class MusicFragment : Fragment() {
                     highQualityOneImage.setImageURI(highQualityOne.coverImgUrl)
                     highQualityOneTitle.text = highQualityOne.name
 
+                    highQualityOneImage.setOnClickListener {
+                        val action = MusicFragmentDirections.actionToMusicListDetailFragment(
+                            highQualityOne.name,
+                            highQualityOne.id
+                        )
+                        findNavController().navigate(action)
+                    }
+
                     highQualityTwoImage.setImageURI(highQualityTwo.coverImgUrl)
                     highQualityTwoTitle.text = highQualityTwo.name
 
+                    highQualityTwoImage.setOnClickListener {
+                        val action = MusicFragmentDirections.actionToMusicListDetailFragment(
+                            highQualityTwo.name,
+                            highQualityTwo.id
+                        )
+                        findNavController().navigate(action)
+                    }
+
                     highQualityThreeImage.setImageURI(highQualityThree.coverImgUrl)
                     highQualityThreeTitle.text = highQualityThree.name
+
+                    highQualityThreeImage.setOnClickListener {
+                        val action = MusicFragmentDirections.actionToMusicListDetailFragment(
+                            highQualityThree.name,
+                            highQualityThree.id
+                        )
+                        findNavController().navigate(action)
+                    }
                 }
             }
 
@@ -64,12 +100,34 @@ class MusicFragment : Fragment() {
 
                     musicTopListOneImage.setImageURI(topListOne.coverImgUrl)
                     musicTopListOneTitle.text = topListOne.name
+                    musicTopListOneImage.setOnClickListener {
+                        val action = MusicFragmentDirections.actionToMusicListDetailFragment(
+                            topListOne.name,
+                            topListOne.id
+                        )
+                        findNavController().navigate(action)
+                    }
 
                     musicTopListTwoImage.setImageURI(topListTwo.coverImgUrl)
                     musicTopListTwoTitle.text = topListTwo.name
 
+                    musicTopListTwoImage.setOnClickListener {
+                        val action = MusicFragmentDirections.actionToMusicListDetailFragment(
+                            topListTwo.name,
+                            topListTwo.id
+                        )
+                        findNavController().navigate(action)
+                    }
+
                     musicTopListThreeImage.setImageURI(topListThree.coverImgUrl)
                     musicTopListThreeTitle.text = topListThree.name
+                    musicTopListThreeImage.setOnClickListener {
+                        val action = MusicFragmentDirections.actionToMusicListDetailFragment(
+                            topListThree.name,
+                            topListThree.id
+                        )
+                        findNavController().navigate(action)
+                    }
                 }
             }
 

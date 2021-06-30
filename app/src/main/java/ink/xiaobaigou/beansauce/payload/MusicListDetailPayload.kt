@@ -11,7 +11,6 @@ data class MusicListDetailPayload(val playlist:PlayListDetail,val code:Int){
         val name:String,
         val coverImgId:Long,
         val coverImgUrl:String,
-        val coverImageId_str:String,
         val description:String,
         val tracks:List<Track>
     )

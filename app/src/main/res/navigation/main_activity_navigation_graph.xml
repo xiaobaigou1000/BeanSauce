@@ -4,6 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_navigation_graph"
     app:startDestination="@id/movieFragment">
+    <action android:id="@+id/action_to_musicListDetailFragment"
+        app:destination="@id/musicListDetailFragment">
+        <argument
+            android:name="title"
+            app:argType="string"/>
+        <argument
+            android:name="musicListId"
+            app:argType="long"/>
+    </action>
     <fragment
         android:id="@+id/movieFragment"
         android:name="ink.xiaobaigou.beansauce.movie.fragment.MovieFragment"
@@ -45,5 +54,32 @@
         android:id="@+id/musicFragment"
         android:name="ink.xiaobaigou.beansauce.music.fragment.MusicFragment"
         android:label="Music Fragment"
-        tools:layout="@layout/fragment_music" />
+        tools:layout="@layout/fragment_music" >
+        <action
+            android:id="@+id/action_musicFragment_to_highQualityMusicListFragment"
+            app:destination="@id/HighQualityPlayListFragment" />
+        <action
+            android:id="@+id/action_musicFragment_to_musicTopListFragment"
+            app:destination="@id/MusicTopPlayListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/HighQualityPlayListFragment"
+        android:name="ink.xiaobaigou.beansauce.music.fragment.HighQualityPlayListFragment"
+        android:label="HighQualityMusicListFragment" />
+    <fragment
+        android:id="@+id/MusicTopPlayListFragment"
+        android:name="ink.xiaobaigou.beansauce.music.fragment.MusicTopPlayListFragment"
+        android:label="MusicTopListFragment" />
+    <fragment
+        android:id="@+id/musicListDetailFragment"
+        android:name="ink.xiaobaigou.beansauce.music.fragment.MusicListDetailFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_music_list_detail">
+        <argument
+            android:name="title"
+            app:argType="string"/>
+        <argument
+            android:name="musicListId"
+            app:argType="long"/>
+    </fragment>
 </navigation>

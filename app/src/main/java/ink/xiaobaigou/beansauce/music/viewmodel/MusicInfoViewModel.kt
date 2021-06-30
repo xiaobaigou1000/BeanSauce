@@ -25,9 +25,6 @@ class MusicInfoViewModel : ViewModel() {
     private val _highQualityMusicLists = MutableLiveData<List<MusicListItemPayload>>()
     val highQualityMusicLists = _highQualityMusicLists
 
-    private val _currentDisplayMusicList = MutableLiveData<MusicListDetailPayload.PlayListDetail>()
-    val currentDisplayMusicList = _currentDisplayMusicList
-
     private val _musicTopLists = MutableLiveData<List<MusicListItemPayload>>()
     val musicTopLists = _musicTopLists
 
@@ -39,13 +36,8 @@ class MusicInfoViewModel : ViewModel() {
         }
     }
 
-    suspend fun updateCurrentDisplayMusicList(musicListId: Long) {
-        try {
-            val result = musicService.getMusicListDetail(musicListId)
-            _currentDisplayMusicList.value = result.playlist
-        } catch (err: Exception) {
-            logError(err)
-        }
+    suspend fun getCurrentDisplayMusicList(musicListId: Long): MusicListDetailPayload {
+        return musicService.getMusicListDetail(musicListId)
     }
 
     suspend fun updateBannerImages() {
