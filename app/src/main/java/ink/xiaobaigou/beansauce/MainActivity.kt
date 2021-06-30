@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             bottomNavigation.setupWithNavController(navController)
             topAppBar.setupWithNavController(
                 navController,
-                AppBarConfiguration(setOf(R.id.movieFragment, R.id.newsFragment))
+                AppBarConfiguration(setOf(R.id.movieFragment, R.id.newsFragment,R.id.musicFragment))
             )
         }
     }

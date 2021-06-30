@@ -7,7 +7,7 @@
         android:title="@string/movie" />
 
     <item
-        android:id="@+id/music_fragment"
+        android:id="@+id/musicFragment"
         android:enabled="true"
         android:icon="@drawable/outline_music_note_24"
         android:title="@string/music" />

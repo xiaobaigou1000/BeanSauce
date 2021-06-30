@@ -41,4 +41,9 @@
             app:argType="string"
             app:nullable="false" />
     </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="ink.xiaobaigou.beansauce.music.fragment.MusicFragment"
+        android:label="Music Fragment"
+        tools:layout="@layout/fragment_music" />
 </navigation>
