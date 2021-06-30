@@ -8,7 +8,7 @@ object MovieServiceSingleton {
     val globalUrl = "http://10.0.2.2:8888/"
     val baseUrl="${globalUrl}douban/api/"
     private val retrofitService =
-        Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(
+        Retrofit.Builder().baseUrl(baseUrl).client(globalOkHttpClient).addConverterFactory(
             JacksonConverterFactory.create(
                 globalJacksonMapper
             )

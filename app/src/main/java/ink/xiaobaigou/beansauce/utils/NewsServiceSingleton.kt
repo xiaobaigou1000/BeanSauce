@@ -7,7 +7,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 object NewsServiceSingleton {
     val baseUrl="http://v.juhe.cn/toutiao/"
     private val retrofitService =
-        Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(
+        Retrofit.Builder().baseUrl(baseUrl).client(globalOkHttpClient).addConverterFactory(
             JacksonConverterFactory.create(
                 globalJacksonMapper
             )
