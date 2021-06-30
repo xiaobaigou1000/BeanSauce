@@ -28,8 +28,8 @@ class NewsListFragment(val type: String) : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onStart() {
+        super.onStart()
         binding.apply {
             newsList.layoutManager = LinearLayoutManager(requireContext())
             val adapter = NewsListAdapter {
@@ -50,6 +50,5 @@ class NewsListFragment(val type: String) : Fragment() {
                 }
             }
         }
-
     }
 }

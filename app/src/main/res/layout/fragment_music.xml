@@ -1,248 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:id="@+id/swipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".music.fragment.MusicFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/bannerPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintDimensionRatio="2.7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/bannerPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintDimensionRatio="2.7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/highQualityListTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="推荐歌单"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bannerPager" />
-
-        <Button
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更多"
-            app:layout_constraintBottom_toBottomOf="@id/highQualityListTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/highQualityListTitle" />
-
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerPager">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/highQualityListConstraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/highQualityListTitle">
+            android:layout_height="match_parent">
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/highQualityOneImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                app:layout_constraintDimensionRatio="1.0"
-                app:layout_constraintEnd_toStartOf="@+id/highQualityTwoImage"
-                app:layout_constraintHorizontal_bias="0.5"
+            <TextView
+                android:id="@+id/highQualityListTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="推荐歌单"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/highQualityTwoImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                app:layout_constraintDimensionRatio="1.0"
-                app:layout_constraintEnd_toStartOf="@+id/highQualityThreeImage"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/highQualityOneImage"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/highQualityThreeImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                app:layout_constraintDimensionRatio="1.0"
+            <Button
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                app:layout_constraintBottom_toBottomOf="@id/highQualityListTitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/highQualityTwoImage"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/highQualityOneTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/highQualityOneImage"
-                app:layout_constraintStart_toStartOf="@id/highQualityOneImage"
-                app:layout_constraintTop_toBottomOf="@id/highQualityOneImage"
-                tools:text="hello world thank you funny fool" />
-
-            <TextView
-                android:id="@+id/highQualityTwoTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/highQualityTwoImage"
-                app:layout_constraintStart_toStartOf="@id/highQualityTwoImage"
-                app:layout_constraintTop_toBottomOf="@id/highQualityTwoImage"
-                tools:text="hello world thank you funny fool" />
-
-            <TextView
-                android:id="@+id/highQualityThreeTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/highQualityThreeImage"
-                app:layout_constraintStart_toStartOf="@id/highQualityThreeImage"
-                app:layout_constraintTop_toBottomOf="@id/highQualityThreeImage"
-                tools:text="hello world thank you funny fool" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/musicTopListTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="排行榜"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/highQualityListConstraintLayout" />
-
-        <Button
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更多"
-            app:layout_constraintBottom_toBottomOf="@id/musicTopListTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/musicTopListTitle" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/musicTopListConstraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/musicTopListTitle">
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/musicTopListOneImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                app:layout_constraintDimensionRatio="1.0"
-                app:layout_constraintEnd_toStartOf="@+id/musicTopListTwoImage"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/highQualityListTitle" />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/musicTopListTwoImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                app:layout_constraintDimensionRatio="1.0"
-                app:layout_constraintEnd_toStartOf="@+id/musicTopListThreeImage"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/musicTopListOneImage"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/musicTopListThreeImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="8dp"
-                app:layout_constraintDimensionRatio="1.0"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/highQualityListConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/musicTopListTwoImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/highQualityListTitle">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/highQualityOneImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintEnd_toStartOf="@+id/highQualityTwoImage"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/highQualityTwoImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintEnd_toStartOf="@+id/highQualityThreeImage"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/highQualityOneImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/highQualityThreeImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/highQualityTwoImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/highQualityOneTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/highQualityOneImage"
+                    app:layout_constraintStart_toStartOf="@id/highQualityOneImage"
+                    app:layout_constraintTop_toBottomOf="@id/highQualityOneImage"
+                    tools:text="hello world thank you funny fool" />
+
+                <TextView
+                    android:id="@+id/highQualityTwoTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/highQualityTwoImage"
+                    app:layout_constraintStart_toStartOf="@id/highQualityTwoImage"
+                    app:layout_constraintTop_toBottomOf="@id/highQualityTwoImage"
+                    tools:text="hello world thank you funny fool" />
+
+                <TextView
+                    android:id="@+id/highQualityThreeTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/highQualityThreeImage"
+                    app:layout_constraintStart_toStartOf="@id/highQualityThreeImage"
+                    app:layout_constraintTop_toBottomOf="@id/highQualityThreeImage"
+                    tools:text="hello world thank you funny fool" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/musicTopListOneTitle"
-                android:layout_width="0dp"
+                android:id="@+id/musicTopListTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/musicTopListOneImage"
-                app:layout_constraintStart_toStartOf="@id/musicTopListOneImage"
-                app:layout_constraintTop_toBottomOf="@id/musicTopListOneImage"
-                tools:text="hello world thank you funny fool" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="排行榜"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/highQualityListConstraintLayout" />
 
-            <TextView
-                android:id="@+id/musicTopListTwoTitle"
-                android:layout_width="0dp"
+            <Button
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/musicTopListTwoImage"
-                app:layout_constraintStart_toStartOf="@id/musicTopListTwoImage"
-                app:layout_constraintTop_toBottomOf="@id/musicTopListTwoImage"
-                tools:text="hello world thank you funny fool" />
+                android:text="更多"
+                app:layout_constraintBottom_toBottomOf="@id/musicTopListTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/musicTopListTitle" />
 
-            <TextView
-                android:id="@+id/musicTopListThreeTitle"
-                android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/musicTopListConstraintLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/musicTopListThreeImage"
-                app:layout_constraintStart_toStartOf="@id/musicTopListThreeImage"
-                app:layout_constraintTop_toBottomOf="@id/musicTopListThreeImage"
-                tools:text="hello world thank you funny fool" />
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/musicTopListTitle">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/musicTopListOneImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintEnd_toStartOf="@+id/musicTopListTwoImage"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/musicTopListTwoImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintEnd_toStartOf="@+id/musicTopListThreeImage"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/musicTopListOneImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/musicTopListThreeImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintDimensionRatio="1.0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/musicTopListTwoImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/musicTopListOneTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/musicTopListOneImage"
+                    app:layout_constraintStart_toStartOf="@id/musicTopListOneImage"
+                    app:layout_constraintTop_toBottomOf="@id/musicTopListOneImage"
+                    tools:text="hello world thank you funny fool" />
+
+                <TextView
+                    android:id="@+id/musicTopListTwoTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/musicTopListTwoImage"
+                    app:layout_constraintStart_toStartOf="@id/musicTopListTwoImage"
+                    app:layout_constraintTop_toBottomOf="@id/musicTopListTwoImage"
+                    tools:text="hello world thank you funny fool" />
+
+                <TextView
+                    android:id="@+id/musicTopListThreeTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/musicTopListThreeImage"
+                    app:layout_constraintStart_toStartOf="@id/musicTopListThreeImage"
+                    app:layout_constraintTop_toBottomOf="@id/musicTopListThreeImage"
+                    tools:text="hello world thank you funny fool" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

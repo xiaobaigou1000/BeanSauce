@@ -6,5 +6,4 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 data class MusicTopListPayload(
     val code:Int,
     val list:List<MusicListItemPayload>
-){
-}
+)
